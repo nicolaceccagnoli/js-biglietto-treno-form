@@ -55,36 +55,57 @@ myButton.addEventListener('click', function() {
 
 // Converto il prezzo del Biglietto in numeri Umane
 
-    let ticketPriceFixed = ticketPrice.toFixed(2);
-
     console.log(ticketPrice);
-    console.log(ticketPriceFixed);
 
 // Creo le Variabili che mi calcolano lo sconto
 
     // Sconto Under 18
 
-        let ticketPriceUnder = ticketPriceFixed * 0.8;
-        let ticketPriceFixedUnder = ticketPriceUnder.toFixed(2);
+        let ticketPriceUnder = ticketPrice * 0.8;
 
         //  Converto il typeof della Variabile ticketPriceFiedUnder
 
-        ticketPriceFixedUnderValue = parseInt(ticketPriceFixedUnder);
+        ticketPriceUnderValue = (+ticketPriceUnder);
 
-        console.log('ticketPriceFixedUnder', ticketPriceFixedUnder, typeof ticketPriceFixedUnder);
-        console.log('ticketPriceFixedUnderValue', ticketPriceFixedUnderValue, typeof ticketPriceFixedUnderValue);
+        console.log('ticketPriceUnder', ticketPriceUnder, typeof ticketPriceUnder);
+        console.log('ticketPriceUnderValue', ticketPriceUnderValue, typeof ticketPriceUnderValue);
 
     // Sconto Over 65
 
-        let ticketPriceOver = ticketPriceFixed * 0.6;
-        let ticketPriceFixedOver = ticketPriceOver.toFixed(2);
+        let ticketPriceOver = ticketPrice * 0.6;
 
         //  Converto il typeof della Variabile ticketPriceFiedOver
 
-        ticketPriceFixedOverValue = parseInt(ticketPriceFixedOver);
+        ticketPriceOverValue = (+ticketPriceOver);
 
-        console.log('ticketPriceFixedOver', ticketPriceFixedOver, typeof ticketPriceFixedOver);
-        console.log('ticketPriceFixedOverValue', ticketPriceFixedOverValue, typeof ticketPriceFixedOverValue);
+        console.log('ticketPriceOver', ticketPriceOver, typeof ticketPriceOver);
+        console.log('ticketPriceOverValue', ticketPriceOverValue, typeof ticketPriceOverValue);
+
+
+// 3) Applica lo sconto in base all'età del passeggero
+
+    if(ageInputValue < 18) {
+
+        // Stampo il Biglietto Under in pagina
+
+        document.querySelector('.my-ticket').innerHTML = ticketPriceUnderValue.toFixed(2) + ' €';
+        console.log(ticketPriceUnderValue.toFixed(2));
+
+    } else if (ageInputValue > 65) {
+
+        //  Stampo il Biglietto Over in pagina
+
+        document.querySelector('.my-ticket').innerHTML = ticketPriceOverValue.toFixed(2) + ' €';
+        console.log(ticketPriceOverValue.toFixed(2));
+
+    } else {
+
+        // Stampa il Biglietto Standard in pagina
+
+        document.querySelector('.my-ticket').innerHTML = ticketPrice.toFixed(2) + ' €';
+        console.log(ticketPrice.toFixed(2));
+
+    }
 
 });
 
