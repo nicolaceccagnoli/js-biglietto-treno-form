@@ -31,3 +31,12 @@ html{
     font-family: 'Lato', sans-serif;
 }
 
+.ticket {
+    height: 180px;
+    width: 920px;
+}
+
+body {
+    background-image: url(/img/1682862065-7097.avif);
+    background-size: cover;
+}
