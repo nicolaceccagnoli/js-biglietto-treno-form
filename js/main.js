@@ -81,6 +81,9 @@ myButton.addEventListener('click', function() {
         console.log('ticketPriceOver', ticketPriceOver, typeof ticketPriceOver);
         console.log('ticketPriceOverValue', ticketPriceOverValue, typeof ticketPriceOverValue);
 
+// Creo la Variabile che selezionerà la classe "my-ticekt" dall'HTML
+
+    const myTicket = document.querySelector('.my-ticket');
 
 // 3) Applica lo sconto in base all'età del passeggero
 
@@ -88,32 +91,40 @@ myButton.addEventListener('click', function() {
 
         // Stampo il Biglietto Under in pagina
 
-        document.querySelector('.my-ticket').innerHTML = ticketPriceUnderValue.toFixed(2) + ' €';
+        myTicket.innerHTML = ticketPriceUnderValue.toFixed(2) + ' €';
         console.log(ticketPriceUnderValue.toFixed(2));
+
+        // Una volta calcolato il prezzo del Biglietto, allora resetto i valori del Form
+
+        kmInput.value = 'Inserisci i km...';
+        ageInput.value = 'Inserisci la tua età...'
 
     } else if (ageInputValue > 65) {
 
         //  Stampo il Biglietto Over in pagina
 
-        document.querySelector('.my-ticket').innerHTML = ticketPriceOverValue.toFixed(2) + ' €';
+        myTicket.innerHTML = ticketPriceOverValue.toFixed(2) + ' €';
         console.log(ticketPriceOverValue.toFixed(2));
+
+        // Una volta calcolato il prezzo del Biglietto, allora resetto i valori del Form
+
+        kmInput.value = 'Inserisci i km...';
+        ageInput.value = 'Inserisci la tua età...'
+
 
     } else {
 
         // Stampa il Biglietto Standard in pagina
 
-        document.querySelector('.my-ticket').innerHTML = ticketPrice.toFixed(2) + ' €';
+        myTicket.innerHTML = ticketPrice.toFixed(2) + ' €';
         console.log(ticketPrice.toFixed(2));
+
+        // Una volta calcolato il prezzo del Biglietto, allora resetto i valori del Form
+
+        kmInput.value = 'Inserisci i km...';
+        ageInput.value = 'Inserisci la tua età...'
+
 
     }
 
 });
-
-/*
-
-
-    const ageInput = document.getElementById('age');
-    
-    console.log('ageInput', ageInput, typeof ageInput);
-
-*/
