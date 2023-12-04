@@ -49,6 +49,18 @@ myButton.addEventListener('click', function() {
     console.log('age', age, typeof age);
     console.log('ageInputValue', ageInputValue, typeof ageInputValue);
 
+// Creo la Variabile che mi calcola il prezzo del Biglietto
+
+    let ticketPrice = kmInputValue * 0.21;
+
+// Converto il prezzo del Biglietto in numeri Umane
+
+    let ticketPriceFixed = ticketPrice.toFixed(2);
+
+    console.log(ticketPrice);
+    console.log(ticketPriceFixed);
+
+
 });
 
 /*
