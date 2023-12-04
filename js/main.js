@@ -26,12 +26,28 @@ myButton.addEventListener('click', function() {
 
     console.log('Hai inviato il Form ' + counter + ' volte');
 
-    // 1) Chiedi all' Utente il numero di chilometri da percorrere
+// 1) Chiedi all' Utente il numero di chilometri da percorrere
 
-    const kmInput = document.getElementById('km');
+    const kmInput = document.querySelector('#km');
+
+//  Converto il typeof dell'input km
+
+    kmInputValue = parseInt(kmInput.value);
+
 
     console.log('kmInput', kmInput, typeof kmInput);
-    console.log('kmInput.value', kmInput.value , typeof kmInput.value);
+    console.log('kmInputValue', kmInputValue , typeof kmInputValue);
+
+// 2) Chiedi all' Utente l'età
+
+    const ageInput = document.querySelector('#age');
+
+//  Converto il typeof dell'input age
+
+    ageInputValue = parseInt(ageInput.value);
+
+    console.log('age', age, typeof age);
+    console.log('ageInputValue', ageInputValue, typeof ageInputValue);
 
 });
 
