@@ -15,6 +15,16 @@ const myButton = document.querySelector('#special-button');
 
 let counter = 0;
 
+// BONUS : Chiedo all'utente Il Nome e il Cognome
+
+let passengerName = document.querySelector('#name');
+let passengerNameValue = Object.toString(passengerName);
+
+console.log('passengerName',passengerName, typeof passengerName);
+console.log('passengerNameValue', passengerNameValue, typeof passengerNameValue);
+
+
+
 // Imposto l'evento che viene scatenato dal 'click' su "myButton"  
 
 myButton.addEventListener('click', function() {
@@ -32,7 +42,7 @@ myButton.addEventListener('click', function() {
 
 //  Converto il typeof dell'input km
 
-    kmInputValue = parseInt(kmInput.value);
+    const kmInputValue = parseInt(kmInput.value);
 
 
     console.log('kmInput', kmInput, typeof kmInput);
@@ -40,14 +50,19 @@ myButton.addEventListener('click', function() {
 
 // 2) Chiedi all' Utente l'età
 
-    const ageInput = document.querySelector('#age');
+    // const ageInput = document.querySelector('#age');
 
 //  Converto il typeof dell'input age
 
-    ageInputValue = parseInt(ageInput.value);
+    // ageInputValue = parseInt(ageInput.value);
 
-    console.log('age', age, typeof age);
-    console.log('ageInputValue', ageInputValue, typeof ageInputValue);
+    // console.log('age', age, typeof age);
+    // console.log('ageInputValue', ageInputValue, typeof ageInputValue);
+
+// Chiedo all'utente di inserire un valore nella Select del Form
+
+    let myAgeRange = document.querySelector('#age-range').value;
+    console.log(myAgeRange);
 
 // Creo la Variabile che mi calcola il prezzo del Biglietto
 
@@ -87,19 +102,25 @@ myButton.addEventListener('click', function() {
 
 // 3) Applica lo sconto in base all'età del passeggero
 
-    if(ageInputValue < 18) {
+    if (myAgeRange === 'under' ) {
 
         // Stampo il Biglietto Under in pagina
 
         myTicket.innerHTML = ticketPriceUnderValue.toFixed(2) + ' €';
         console.log(ticketPriceUnderValue.toFixed(2));
 
+
+        // BONUS : Stampo il Nome del Passeggero sul biglietto
+
+        document.querySelector('#passenger-name').innerHTML = passengerNameValue;
+
         // Una volta calcolato il prezzo del Biglietto, allora resetto i valori del Form
 
         kmInput.value = 'Inserisci i km...';
-        ageInput.value = 'Inserisci la tua età...'
+        document.querySelector('#age-range').value = '';       
+        // ageInput.value = 'Inserisci la tua età...'
 
-    } else if (ageInputValue > 65) {
+    } else if (myAgeRange === 'elderly' ) {
 
         //  Stampo il Biglietto Over in pagina
 
@@ -109,7 +130,8 @@ myButton.addEventListener('click', function() {
         // Una volta calcolato il prezzo del Biglietto, allora resetto i valori del Form
 
         kmInput.value = 'Inserisci i km...';
-        ageInput.value = 'Inserisci la tua età...'
+        document.querySelector('#age-range').value = '';       
+        // ageInput.value = 'Inserisci la tua età...'
 
 
     } else {
@@ -122,7 +144,8 @@ myButton.addEventListener('click', function() {
         // Una volta calcolato il prezzo del Biglietto, allora resetto i valori del Form
 
         kmInput.value = 'Inserisci i km...';
-        ageInput.value = 'Inserisci la tua età...'
+        document.querySelector('#age-range').value = '';       
+        // ageInput.value = 'Inserisci la tua età...'
 
 
     }
